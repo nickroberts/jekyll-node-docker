@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  jekyll:
+    image: jekyll/jekyll
+    container_name: jekyll-jekyll
+    tty: true
+    command: jekyll build --watch --source src
+    volumes:
+      - ./src:/srv/jekyll/src
+      - ./dist:/srv/jekyll/_site
+  node:
+    image: node:8
+    container_name: node-8
+    tty: true
+    command: npm start
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app
+      - ./config/webpack:/usr/src/app/config/webpack
+    ports:
+      - 8080:8080
+    depends_on:
+      - jekyll
+    networks:
+      app:
+
+networks:
+  app:

@@ -1,0 +1,29 @@
+{
+  "name": "jekyll-node-docker",
+  "version": "0.0.1",
+  "description": "## Setup",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config config/webpack/webpack.config.dev.js",
+    "webpack": "webpack --config config/webpack/webpack.config.prod.js"
+  },
+  "author": "Nick Roberts <nick.roberts@pb.com>",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^0.28.7",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.6",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickroberts/jekyll-node-docker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nickroberts/jekyll-node-docker/issues"
+  },
+  "homepage": "https://github.com/nickroberts/jekyll-node-docker#readme"
+}
