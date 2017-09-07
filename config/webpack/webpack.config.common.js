@@ -8,6 +8,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
+        exclude: /(node_modules)(?!\/foundation-sites)/,
         use: {
           loader: 'babel-loader',
           options: {
