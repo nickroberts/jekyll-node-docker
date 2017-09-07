@@ -17,7 +17,10 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        loader: 'awesome-typescript-loader'
+        loader: 'awesome-typescript-loader',
+        options: {
+          configFileName: 'config/typescript/tsconfig.json'
+        }
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,

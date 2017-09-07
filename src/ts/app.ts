@@ -1,10 +1,11 @@
 import '../scss/app.scss';
 
-// TODO
+import * as $ from 'jquery';
+import * as foundation from 'foundation-sites/js/entries/foundation';
 
 class App {
   constructor() {
-    console.log('App loaded!');
+    $(document).foundation();
   }
 }
 
