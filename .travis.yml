@@ -3,6 +3,13 @@ sudo: required
 services:
   - docker
 
+cache:
+  directories:
+    - node_modules
+
+before_script:
+  - base scripts/setup.sh
+
 script:
   - bash scripts/lint.sh
   - bash scripts/build.sh
