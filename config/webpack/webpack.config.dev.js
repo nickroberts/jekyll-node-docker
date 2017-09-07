@@ -1,10 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 
-module.exports = {
-  entry: {
-    app: './src/ts/app.ts'
-  },
+const common = require('./webpack.config.common.js');
+
+const options = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: 'dist/',
@@ -13,41 +13,12 @@ module.exports = {
     watchContentBase: true,
     host: '0.0.0.0'
   },
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        loader: 'awesome-typescript-loader',
-        options: {
-          configFileName: 'config/typescript/tsconfig.json'
-        }
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=[name].[ext]'
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader"
-          },
-          {
-            loader: "sass-loader"
-          }
-        ]
-      }
-    ]
-  },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve('dist/js'),
     publicPath: '/assets'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]
 };
+
+module.exports = merge(common, options);

@@ -1,24 +1,13 @@
 const path = require('path');
+const merge = require('webpack-merge');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
-module.exports = {
-  entry: {
-    app: './src/ts/app.ts'
-  },
+const common = require('./webpack.config.common.js');
+
+const options = {
   module: {
     rules: [
-      {
-        test: /\.ts$/,
-        loader: 'awesome-typescript-loader',
-        options: {
-          configFileName: 'config/typescript/tsconfig.json'
-        }
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=[name].[ext]'
-      },
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
@@ -38,12 +27,10 @@ module.exports = {
       }
     ]
   },
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve('dist/assets')
-  },
   plugins: [
     new ExtractTextPlugin({ filename: '[name].bundle.css', allChunks: true }),
     new UglifyJSPlugin()
   ]
 };
+
+module.exports = merge.smart(common, options);
