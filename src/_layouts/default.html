@@ -2,8 +2,16 @@
 <html class="no-js" lang="en">
   {% include head.html %}
   <body>
-    {% include header.html %}
-    {{ content }}
-    {% include footer.html %}
+    <div class="main">
+      {% include header.html %}
+
+      <div class="main--content">
+        <div class="row">
+          <div class="small-12 columns">{{ content }}</div>
+        </div>
+      </div>
+
+      {% include footer.html %}
+    </div>
   </body>
 </html>

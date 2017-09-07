@@ -12,11 +12,31 @@ docker run -it \
   node:8 \
   npm run build
 
-docker run -it \
-  --rm \
-  --volume=$PWD/src:/srv/jekyll/src \
-  --volume=$PWD/dist:/srv/jekyll/_site \
-  --volume=$PWD/config/jekyll:/srv/jekyll/config/jekyll \
-  -w /srv/jekyll \
-  jekyll/builder:$JEKYLL_VERSION \
-  jekyll build --source src --config src/_config.yml,config/jekyll/_config.prod.yml
+if [ "$TRAVIS_BRANCH" = "prod" ]; then
+  docker run -it \
+    --rm \
+    --volume=$PWD/src:/srv/jekyll/src \
+    --volume=$PWD/dist:/srv/jekyll/_site \
+    --volume=$PWD/config/jekyll:/srv/jekyll/config/jekyll \
+    -w /srv/jekyll \
+    jekyll/builder:$JEKYLL_VERSION \
+    jekyll build --source src --config src/_config.yml,config/jekyll/_config.prod.yml
+elif [ "$TRAVIS_BRANCH" ]; then
+  docker run -it \
+    --rm \
+    --volume=$PWD/src:/srv/jekyll/src \
+    --volume=$PWD/dist:/srv/jekyll/_site \
+    --volume=$PWD/config/jekyll:/srv/jekyll/config/jekyll \
+    -w /srv/jekyll \
+    jekyll/builder:$JEKYLL_VERSION \
+    jekyll build --source src --config src/_config.yml,config/jekyll/_config.staging.yml
+else
+  docker run -it \
+    --rm \
+    --volume=$PWD/src:/srv/jekyll/src \
+    --volume=$PWD/dist:/srv/jekyll/_site \
+    --volume=$PWD/config/jekyll:/srv/jekyll/config/jekyll \
+    -w /srv/jekyll \
+    jekyll/builder:$JEKYLL_VERSION \
+    jekyll build --source src
+fi

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title:  "Welcome to Jekyll! Now with more Docker!"
 date:   2017-09-06 14:16:26 -0500
 categories: jekyll update

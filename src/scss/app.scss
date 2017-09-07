@@ -1,2 +1,9 @@
+@import 'settings/foundation';
 @import '~foundation-sites/scss/foundation';
-@include foundation-everything;
+@include foundation-flex-classes;
+@include foundation-flex-grid;
+
+@import "components/footer";
+@import "components/header";
+@import "components/sticky-footer";
+@import "components/no-js";

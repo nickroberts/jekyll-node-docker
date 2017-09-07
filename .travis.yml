@@ -1,13 +1,7 @@
 sudo: required
 
-language: node_js
-
 services:
   - docker
-
-cache:
-  directories:
-    - node_modules
 
 before_script:
   - bash scripts/setup.sh
@@ -15,3 +9,11 @@ before_script:
 script:
   - bash scripts/lint.sh
   - bash scripts/build.sh
+
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: dist
+    on:
+      branch: master
