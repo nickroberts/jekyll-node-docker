@@ -22,7 +22,7 @@ docker run -it \
 ## Stopping
 * docker-compose down
 
-## TODO
-* prod?
-* ci?
-* windoze?
+## Lint
+```
+./scripts/lint.sh
+```

@@ -1,3 +1,4 @@
 # Staging specific settings
 environment: production
+baseurl: jekyll-node-docker
 # google_analytics: <staging ga key>
