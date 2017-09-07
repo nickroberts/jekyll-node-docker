@@ -1,4 +1,4 @@
-# Jekll With Node and Docker [![Build Status](https://travis-ci.org/nickroberts/jekyll-node-docker.svg?branch=master)](https://travis-ci.org/nickroberts/jekyll-node-docker)
+# Jekyll With Node and Docker [![Build Status](https://travis-ci.org/nickroberts/jekyll-node-docker.svg?branch=master)](https://travis-ci.org/nickroberts/jekyll-node-docker)
 
 Jekyll, with webpack, webpack-dev-server and Docker handling it all.
 
