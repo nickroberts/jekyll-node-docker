@@ -8,7 +8,7 @@ cache:
     - node_modules
 
 before_script:
-  - base scripts/setup.sh
+  - bash scripts/setup.sh
 
 script:
   - bash scripts/lint.sh
