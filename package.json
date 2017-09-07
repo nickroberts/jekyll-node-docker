@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config config/webpack/webpack.config.dev.js",
-    "build": "webpack --config config/webpack/webpack.config.prod.js"
+    "build": "webpack --config config/webpack/webpack.config.prod.js",
+    "lint": "tslint -c config/typescript/tslint.json --project config/typescript/tsconfig.json --format stylish"
   },
   "author": "Nick Roberts <nick.roberts@pb.com>",
   "license": "ISC",

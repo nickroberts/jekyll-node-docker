@@ -1,0 +1,15 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "no-console": [true, "log", "error"],
+    "object-literal-sort-keys": false,
+    "trailing-comma": [false],
+    "quotemark": [true, "single", "avoid-escape"],
+    "max-line-length": [
+      true,
+      140
+    ]
+  },
+  "rulesDirectory": [
+  ]
+}

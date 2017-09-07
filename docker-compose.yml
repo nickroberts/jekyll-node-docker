@@ -3,7 +3,7 @@ version: "3"
 services:
   jekyll:
     image: jekyll/jekyll
-    container_name: jekyll-jekyll
+    container_name: jekyll-starter.jekyll
     tty: true
     command: jekyll build --watch --source src
     volumes:
@@ -11,7 +11,7 @@ services:
       - ./dist:/srv/jekyll/_site
   node:
     image: node:8
-    container_name: node-8
+    container_name: jekyll-starter.node
     tty: true
     command: npm start
     working_dir: /usr/src/app
@@ -23,7 +23,7 @@ services:
     depends_on:
       - jekyll
     networks:
-      app:
+      jekyll-starter.network:
 
 networks:
-  app:
+  jekyll-starter.network:
