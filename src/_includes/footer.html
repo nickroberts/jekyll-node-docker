@@ -3,5 +3,5 @@
     <div class="small-12 columns">Footer</div>
   </div>
 
-  <script src="{{ "/assets/app.bundle.js" | relative_url }}"></script>
+  <script src="{{ "/assets/app.bundle.js" | relative_url }}?{{ site.time | date: '%s%N' }}"></script>
 </footer>
