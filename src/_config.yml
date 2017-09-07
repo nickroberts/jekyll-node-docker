@@ -41,8 +41,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - js
+  - ts
   - scss
 keep_files:
-  - js
-  - css
+  - assets

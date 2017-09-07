@@ -6,14 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config config/webpack/webpack.config.dev.js",
-    "webpack": "webpack --config config/webpack/webpack.config.prod.js"
+    "build": "webpack --config config/webpack/webpack.config.prod.js"
   },
   "author": "Nick Roberts <nick.roberts@pb.com>",
   "license": "ISC",
   "dependencies": {
+    "awesome-typescript-loader": "^3.2.3",
     "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.2",
+    "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.5.6",
     "webpack-dev-server": "^2.7.1"
   },
