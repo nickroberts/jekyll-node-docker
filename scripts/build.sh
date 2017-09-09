@@ -20,7 +20,7 @@ if [ "$TRAVIS_BRANCH" = "prod" ]; then
     --volume=$PWD/config/jekyll:/srv/jekyll/config/jekyll \
     -w /srv/jekyll \
     jekyll/builder:$JEKYLL_VERSION \
-    jekyll build --source src --config src/_config.yml,config/jekyll/_config.prod.yml
+    JEKYLL_ENV=production jekyll build --source src --config src/_config.yml,config/jekyll/_config.prod.yml
 elif [ "$TRAVIS_BRANCH" ]; then
   docker run -it \
     --rm \
@@ -29,7 +29,7 @@ elif [ "$TRAVIS_BRANCH" ]; then
     --volume=$PWD/config/jekyll:/srv/jekyll/config/jekyll \
     -w /srv/jekyll \
     jekyll/builder:$JEKYLL_VERSION \
-    jekyll build --source src --config src/_config.yml,config/jekyll/_config.staging.yml
+    JEKYLL_ENV=production jekyll build --source src --config src/_config.yml,config/jekyll/_config.staging.yml
 else
   docker run -it \
     --rm \

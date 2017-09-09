@@ -1,3 +1,2 @@
 # Staging specific settings
-environment: production
 # google_analytics: <prod ga key>
