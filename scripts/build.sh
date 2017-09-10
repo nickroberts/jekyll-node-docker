@@ -14,22 +14,24 @@ docker run -it \
 
 if [ "$TRAVIS_BRANCH" = "prod" ]; then
   docker run -it \
+    -e JEKYLL_ENV=production \
     --rm \
     --volume=$PWD/src:/srv/jekyll/src \
     --volume=$PWD/dist:/srv/jekyll/_site \
     --volume=$PWD/config/jekyll:/srv/jekyll/config/jekyll \
     -w /srv/jekyll \
     jekyll/builder:$JEKYLL_VERSION \
-    JEKYLL_ENV=production jekyll build --source src --config src/_config.yml,config/jekyll/_config.prod.yml
+    jekyll build --source src --config src/_config.yml,config/jekyll/_config.prod.yml
 elif [ "$TRAVIS_BRANCH" ]; then
   docker run -it \
+    -e JEKYLL_ENV=production \
     --rm \
     --volume=$PWD/src:/srv/jekyll/src \
     --volume=$PWD/dist:/srv/jekyll/_site \
     --volume=$PWD/config/jekyll:/srv/jekyll/config/jekyll \
     -w /srv/jekyll \
     jekyll/builder:$JEKYLL_VERSION \
-    JEKYLL_ENV=production jekyll build --source src --config src/_config.yml,config/jekyll/_config.staging.yml
+    jekyll build --source src --config src/_config.yml,config/jekyll/_config.staging.yml
 else
   docker run -it \
     --rm \
